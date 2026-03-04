@@ -47,7 +47,7 @@ const NewArrivalProducts = async () => {
       price: 110,
       slug: "kurta-sets",
       category: "",
-      image: "/images/newarrivals/Kurta Sets.jpg",
+      image: "/images/newarrivals/Kurta Set.jpg",
       rating: 4.9,
       reviews: 31,
       inStock: true,

@@ -1,12 +1,17 @@
+import fs from "fs";
+import path from "path";
 import Carousel from "@/components/ui/Carousel";
 import CarouselItem from "@/components/ui/Carousel/CarouselItem";
 import ReviewCard from "./ReviewCard";
 import { ReviewType } from "@/types";
 
-const reviews: ReviewType[] = [
+// Keep a base list of images (public paths). We'll append a cache-busting
+// `?v=<mtime>` query param using the file's mtime so updated files show
+// immediately even if the browser or CDN has cached the previous asset.
+const baseReviews: ReviewType[] = [
   {
     id: "1",
-    name: "Emily Johnson",
+    name: "Meghana",
     rating: 5,
     comment:
       "Absolutely adore the dress! The customization options were exactly what I needed, and the quality is beyond impressive and the fit was perfect. I'm already planning my next purchase.",
@@ -14,7 +19,7 @@ const reviews: ReviewType[] = [
   },
   {
     id: "2",
-    name: "Sophia Smith",
+    name: "Shruthi",
     rating: 4,
     comment:
       "Received my dream dress! Quick delivery and top-notch quality exceeded my expectations. More customization options would be icing on the cake, but overall, I'm thrilled.",
@@ -22,7 +27,7 @@ const reviews: ReviewType[] = [
   },
   {
     id: "3",
-    name: "Isabella Brown",
+    name: "Aishwarya",
     rating: 5,
     comment:
       "Exceptional customer service! Their assistance with sizing was invaluable, and the dress fits like a glove. Couldn't be happier with my purchase!",
@@ -30,13 +35,33 @@ const reviews: ReviewType[] = [
   },
   {
     id: "4",
-    name: "Olivia Davis",
+    name: "Chandana",
     rating: 5,
     comment:
       "Absolutely impressed! The dress's quality exceeded my expectations, and the level of customization available made it truly unique. Found exactly what I was looking for.",
     image: "/images/home/review/customer4.jpg",
   },
 ];
+
+const getVersionedPublicPath = (publicPath: string) => {
+  // publicPath expected to start with '/'
+  const rel = publicPath.startsWith("/") ? publicPath.slice(1) : publicPath;
+  const abs = path.join(process.cwd(), "public", rel);
+
+  try {
+    const stat = fs.statSync(abs);
+    const v = Math.floor(stat.mtimeMs);
+    return `${publicPath}?v=${v}`;
+  } catch (err) {
+    // If file missing or inaccessible, return original path (no crash)
+    return publicPath;
+  }
+};
+
+const reviews: ReviewType[] = baseReviews.map((r) => ({
+  ...r,
+  image: getVersionedPublicPath(r.image),
+}));
 
 const Reviews = () => {
   return (

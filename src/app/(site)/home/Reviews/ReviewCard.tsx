@@ -24,13 +24,23 @@ const ReviewCard = ({ review }: ReviewCardProps) => {
         </div>
       </div>
 
-      <Image
-        width={90}
-        height={90}
-        src={image}
-        alt={name}
-        className="absolute top-0 left-2 size-17 rounded-full"
-      />
+      {typeof image === "string" && image.includes("?") ? (
+        <img
+          width={90}
+          height={90}
+          src={image}
+          alt={name}
+          className="absolute top-0 left-2 size-17 rounded-full"
+        />
+      ) : (
+        <Image
+          width={90}
+          height={90}
+          src={image}
+          alt={name}
+          className="absolute top-0 left-2 size-17 rounded-full"
+        />
+      )}
 
       {/* Decorative image */}
       <Image

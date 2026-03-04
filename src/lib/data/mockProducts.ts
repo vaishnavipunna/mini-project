@@ -1,0 +1,78 @@
+import { ProductType } from "@/types/product";
+
+export const mockProducts: ProductType[] = [
+  {
+    id: "1",
+    name: "Short Frock Autumn",
+    description: "A beautiful autumn-themed short frock with leaf patterns",
+    price: 150,
+    slug: "short-frock-autumn",
+    category: "",
+    image: "/images/dresses/autumn.jpg",
+  },
+  {
+    id: "2",
+    name: "Short Kurthi",
+    description: "Modern short kurthi style dress with urban flair",
+    price: 120,
+    slug: "short-kurthi",
+    category: "",
+    image: "/images/dresses/kurthi.jpg",
+  },
+  {
+    id: "3",
+    name: "Lehenga Choli",
+    description: "Sophisticated lehenga choli with intricate embroidery",
+    price: 95,
+    slug: "lehenga-choli",
+    category: "",
+    image: "/images/dresses/lehenga%20choli.jpg",
+  },
+  {
+    id: "4",
+    name: "Kurta Set",
+    description: "Elegant kurta sets perfect for cooler weather",
+    price: 110,
+    slug: "kurta-sets",
+    category: "",
+    image: "/images/dresses/Kurta%20Set.jpg",
+  },
+  {
+    id: "5",
+    name: "Formal Gown",
+    description: "Elegant formal gowns for special occasions",
+    price: 180,
+    slug: "formal-gown",
+    category: "",
+    image: "/images/dresses/formal-gown.jpg",
+  },
+  {
+    id: "6",
+    name: "Maxi Dress",
+    description: "Beautiful maxi dresses for elegant style",
+    price: 160,
+    slug: "maxi-dress",
+    category: "",
+    image: "/images/dresses/maxi-dress.jpg",
+  },
+  {
+    id: "7",
+    name: "Cocktail Dress",
+    description: "Chic cocktail dresses for evening events",
+    price: 140,
+    slug: "cocktail-dress",
+    category: "",
+    image: "/images/dresses/cocktail.jpg",
+  },
+  {
+    id: "8",
+    name: "Seasonal Dress",
+    description: "Trendy seasonal dresses for every occasion",
+    price: 175,
+    slug: "seasonal-dress",
+    category: "",
+    image: "/images/dresses/seasonal-dress.jpg",
+  },
+];
+
+export default mockProducts;

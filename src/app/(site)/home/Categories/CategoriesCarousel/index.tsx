@@ -31,7 +31,7 @@ const CategoriesCarousel = async () => {
       id: "cat-4",
       name: "Seasonal Dress",
       description: "Trendy seasonal dresses for every occasion",
-      image: "/images/home/banner/banner.png",
+      image: "/images/categories/seasonal-dress.jpg",
       slug: "seasonal-dress",
     },
   ];

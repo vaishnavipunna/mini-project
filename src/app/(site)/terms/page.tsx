@@ -12,8 +12,8 @@ const TermsAndConditionsPage = () => {
       <div className="text-center space-y-2">
         <h2 className="text-2xl font-semibold">Terms and Conditions</h2>
         <p className="text-sm text-dark-light">
-          Effective Date: July 20, 2025 &nbsp;|&nbsp; Last Updated: July 20,
-          2025
+          Effective Date: march 3, 2026 &nbsp;|&nbsp; Last Updated: march 15,
+          2026
         </p>
       </div>
 
