@@ -43,13 +43,23 @@ const ExpertCard = ({ expert }: ExpertCardProps) => {
   return (
     <article className="group">
       <div className="overflow-hidden relative z-0">
-        <Image
-          width={800}
-          height={500}
-          src={image}
-          alt={name}
-          className="aspect-8/5 object-cover rounded-t"
-        />
+        {typeof image === "string" && image.includes("?") ? (
+          <img
+            width={800}
+            height={500}
+            src={image}
+            alt={name}
+            className="aspect-8/5 object-cover rounded-t w-full"
+          />
+        ) : (
+          <Image
+            width={800}
+            height={500}
+            src={image}
+            alt={name}
+            className="aspect-8/5 object-cover rounded-t"
+          />
+        )}
 
         {socialLinks.map(({ href, label, Icon, position, delay }, idx) => (
           <div

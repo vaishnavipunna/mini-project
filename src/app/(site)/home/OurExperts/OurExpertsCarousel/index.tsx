@@ -1,36 +1,56 @@
+import fs from "fs";
+import path from "path";
 import Carousel from "@/components/ui/Carousel";
 import ExpertCard from "./ExpertCard";
 import CarouselItem from "@/components/ui/Carousel/CarouselItem";
 
-const experts = [
+const baseExperts = [
   {
     id: "1",
-    name: "Charlotte Taylor",
-    image: "/images/home/team/tailor4.webp",
+    name: "Lalitha",
+    image: "/images/home/team/tailor1.webp",
     designation: "Designer",
   },
 
   {
     id: "2",
-    name: "Emma Wilson",
-    image: "/images/home/team/tailor2.webp",
+    name: "Uma",
+    image: "/images/home/team/tailor3.webp",
     designation: "Master",
   },
 
   {
     id: "3",
-    name: "Olivia Davis",
-    image: "/images/home/team/tailor3.webp",
+    name: "Vani",
+    image: "/images/home/team/tailor2.webp",
     designation: "Tailor",
   },
 
   {
     id: "4",
-    name: "Jhon Smith",
-    image: "/images/home/team/tailor1.webp",
+    name: "Jayanthi",
+    image: "/images/home/team/tailor4.webp",
     designation: "Tailor",
   },
 ];
+
+const getVersionedPublicPath = (publicPath: string) => {
+  const rel = publicPath.startsWith("/") ? publicPath.slice(1) : publicPath;
+  const abs = path.join(process.cwd(), "public", rel);
+
+  try {
+    const stat = fs.statSync(abs);
+    const v = Math.floor(stat.mtimeMs);
+    return `${publicPath}?v=${v}`;
+  } catch (err) {
+    return publicPath;
+  }
+};
+
+const experts = baseExperts.map((e) => ({
+  ...e,
+  image: getVersionedPublicPath(e.image),
+}));
 
 const OurExpertsCarousel = () => {
   return (

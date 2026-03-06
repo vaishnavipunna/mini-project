@@ -28,7 +28,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
 
         <div className="px-4 pb-3 font-medium space-y-1">
           <p className="truncate text-xs sm:text-sm">{name}</p>
-          <p className="text-sm sm:text-base">${price}</p>
+          <p className="text-sm sm:text-base">₹{price}</p>
         </div>
       </Link>
 

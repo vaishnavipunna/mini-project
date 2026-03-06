@@ -13,13 +13,23 @@ const CategoryCard = ({ category }: CategoryCardProps) => {
     <Link href={`/dresses?category=${slug}`} className="relative z-0 group">
       {/* Category image */}
       <figure className="w-full aspect-5/6 overflow-hidden">
-        <Image
-          width={500}
-          height={700}
-          src={image}
-          alt=""
-          className="size-full rounded object-cover object-top mix-blend-multiply group-hover:scale-105 duration-350"
-        />
+        {typeof image === "string" && image.includes("?") ? (
+          <img
+            width={500}
+            height={700}
+            src={image}
+            alt=""
+            className="size-full rounded object-cover object-top mix-blend-multiply group-hover:scale-105 duration-350 w-full h-full"
+          />
+        ) : (
+          <Image
+            width={500}
+            height={700}
+            src={image}
+            alt=""
+            className="size-full rounded object-cover object-top mix-blend-multiply group-hover:scale-105 duration-350"
+          />
+        )}
       </figure>
 
       {/* Category name */}

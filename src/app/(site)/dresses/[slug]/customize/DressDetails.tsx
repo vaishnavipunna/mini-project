@@ -26,7 +26,7 @@ const DressDetails = ({ dress }: DressDetailsProps) => {
 
       <div className="pt-2 flex items-start justify-between gap-4">
         <p className="font-medium text-dark-light">{name}</p>
-        <h3 className="font-semibold text-lg">${price}</h3>
+        <h3 className="font-semibold text-lg">₹{price}</h3>
       </div>
     </div>
   );
